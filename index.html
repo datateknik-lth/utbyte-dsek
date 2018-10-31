@@ -15,16 +15,19 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- loading of scripts -->
-    <script type="text/javascript" src="js/buttons.js">
+    <!-- Handlebars -->
+    <script type="text/javascript" src="js/handlebars-1.0.rc.1.js"></script>
 
-    </script>
+    <!-- loading of scripts -->
+    <script type="text/javascript" src="js/buttons.js"></script>
   </head>
+
 
   <body>
     <h1>Hello, dude!</h1>
     <p>Here you can upload your study plans or statement of purpose.</p>
 
+    <!--Create upload form-->
     <form class="form-inline" action="index.html" method="post">
       <div class="form-group">
         <label for="country">Country:</label>
@@ -44,7 +47,6 @@
     </form>
 
 
-
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle" type="button" name="button" data-toggle="dropdown">
         Country<span class="caret"></span>
@@ -59,26 +61,15 @@
 
     <p>JavaScript generated table</p>
 
-    <script>
-      document.write('<p>hej</p>');
-    </script>
+    <div id="sebbe_div"></div>
 
     <script>
-      document.write('<p>he2j</p>');
-      var table = '';
-      const R = 3;
-      const C = 3;
+      var myinfo = "<p>Hejsan, jag heter {{name}} och är fett bra på {{sport}}!</p>";
+      var template = Handlebars.compile(myinfo);
 
-      for (var row = 0; row < R; row++) {
-        table += '<tr>';
+      var data = template({name: "Sebastian Hegge", sport: "Fyssball"});
 
-          for (var col = 1; col <= C; col++) {
-            table += '<td>' + row + ": " + col + '</td>';
-          }
-        table += '</tr>';
-      }
-      console.log(table);
-      document.write('<table border=1>' + table + '</table>');
+      document.getElementById("sebbe_div").innerHTML += data;
     </script>
 
   </body>

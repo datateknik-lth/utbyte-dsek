@@ -4,16 +4,14 @@ import re
 
 def clean_uni_str(string):
     """Removed brackets and its content from string."""
-    reg_brackets = re.compile('([\w*\s*]*)\(', re.UNICODE)  # Find words up until left bracket
+    reg_brackets = re.compile('([\w*\s*\'’-]*)[\(,]?([\w*\s*]*)', re.UNICODE)  # Find words up until left bracket
     reg_star = re.compile("\*")
 
     clean_str = re.sub(reg_star, '', string)  # Remove star
-    matches = re.match(reg_brackets, string)
+    matches = re.match(reg_brackets, clean_str)  # Strip content in brackets or after comma
 
-    if matches is not None:
-        return matches.group(1).strip()
-    else:
-        return clean_str.strip()
+    return matches.group(1).strip()
+
 
 def main():
 
@@ -54,7 +52,7 @@ def main():
                 uni = clean_uni_str(uni)
                 JSON[country.lower().strip()] = [uni]
 
-    with open('data.json', 'w') as file:
+    with open('data.json', 'w', encoding='utf-16') as file:
         json.dump(JSON, file, ensure_ascii=False)
 
         print("Saved data in [data.json]")

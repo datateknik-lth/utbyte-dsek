@@ -14,7 +14,8 @@ def clean_uni_str(string):
 
 
 def main():
-
+    """Script to read universities from the Excel sheet provided by LTH of universities that are open for application.
+    """
     # Read workbook from excel file in same directory
     wb = load_workbook('./01Engineering_ht18_web.xlsx')
 

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>#title</title>
 
     <!--USE BOOTSTRAP-->
@@ -19,24 +21,35 @@
 
     <h2>Studieplaner</h2>
 
-    <table class="table" id="table">
+    <table class="table" id="studyPlanTable">
         <thead class="thead-dark">
         <tr>
-            <th>Ladda ner</th>
+            <th>Länk</th>
             <th>Namn
                 <span class="fas fa-info-circle" data-toggle="tooltip" title="Namnet på den vars studieplan detta är."></span>
             </th>
-            <th data-toggle="tooltip" title="Har denna studieplan blivit godkänd av programmledare? Ja/Nej">Godkänd</th>
-            <th data-toggle="tooltip" title="Var det faktiskt detta du till slut lästa i landet? Ja/Nej">Det jag
-                faktiskt läste i landet
+            <th>Godkänd
+                <span class="fas fa-info-circle" data-toggle="tooltip" title="Har denna studieplan blivit godkänd av programmledare? Ja/Nej"></span>
+            </th>
+            <th>Läste på utbytet
+                <span class="fas fa-info-circle" data-toggle="tooltip" title="Var det faktiskt detta du till slut lästa i landet? Ja/Nej"></span>
             </th>
             <th>Kommentar</th>
-        </thead>
         </tr>
+        </thead>
     </table>
     <h2>Länkar</h2>
     <p>Här finner ni nyttiga länkar till universitetet, t.ex. till kurser eller information riktad till
         utbytesstudenter.</p>
+
+    <table class="table" id="linkTable">
+        <thead class="thead-dark">
+        <tr>
+            <th>Beskrivning</th>
+            <th>Länk</th>
+        </tr>
+        </thead>
+    </table>
 </div>
 
 

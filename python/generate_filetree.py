@@ -31,10 +31,15 @@ def main(file):
                 os.makedirs(uni_path)
                 print("  |-->{}".format(uni))
 
-            # Create markdown base
-            uni_md = Uni(uni)
-            with open("{}/{}.md".format(uni_path, standardize(uni)), 'w+', encoding='utf-16') as file:
-                file.write(uni_md.markdown)
+            # Create HTML base
+            with open('../template/uni_template.html', 'r', encoding='utf-8') as file:
+                html = file.read()
+
+            html = html.replace("#title", uni)
+            html = html.replace("#header", uni)
+
+            with open("{}/{}.html".format(uni_path, standardize(uni)), 'w+', encoding='utf-8') as file:
+                file.write(html)
 
 
 if __name__ == "__main__":

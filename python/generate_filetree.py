@@ -13,7 +13,7 @@ def standardize(name):
 
 def create_html(uni_name, uni_path):
     # Create HTML base
-    with open('../template/uni_template.html', 'r', encoding='utf-8') as file:
+    with open('../views/uni_template.html', 'r', encoding='utf-8') as file:
         html = file.read()
 
     html = html.replace("#title", uni_name)

@@ -1,0 +1,18 @@
+doctype html
+
+html(lang="sv")
+    head
+        title= title
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        // Load bootstrap css
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        // Load fontawesome
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css")
+
+        // Define useful functions
+        - let capFirstLetter = function(str) {return str[0].toUpperCase() + str.slice(1,str.length)};
+
+        block head
+
+    body
+        block content

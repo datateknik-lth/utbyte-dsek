@@ -1,6 +1,7 @@
 from openpyxl import load_workbook
 import json
 import re
+from bson import json_util
 
 def clean_uni_str(string):
     """Removed brackets and its content from string."""
@@ -53,8 +54,8 @@ def main():
                 uni = clean_uni_str(uni)
                 JSON[country.lower().strip()] = [uni]
 
-    with open('data.json', 'w', encoding='utf-16') as file:
-        json.dump(JSON, file, ensure_ascii=False)
+    with open('data.json', 'w', encoding='utf-8') as file:
+        json.dump(JSON, file, ensure_ascii=False, default=json_util.default)
 
         print("Saved data in [data.json]")
 

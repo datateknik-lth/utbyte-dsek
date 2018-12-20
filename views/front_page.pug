@@ -1,0 +1,40 @@
+extends super
+
+block head
+    // Load jquery
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+
+    script.
+        $(document).ready(function () {
+            $("#uniSearch").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#uniTable tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    console.log($(this).text());
+                });
+            });
+        });
+
+block content
+
+    div.container
+        h1 Utbyte på datatekniksektionen vid LTH
+        p Välkommna till resurssidan för utbyte på d-sek vid LTH. Här finner ni nyttiga länkar och godkända studieplaner som lär hjälpa er med er ansökan!
+
+    div.container
+        input.form-control#uniSearch(type="text" placeholder="Sök uni/land...")
+        table.table.table-striped.table-bordered.table-sm.sortable#uniTable
+            thead.thead-dark
+                tr
+                    th Land
+                    th Universitet
+            tbody
+                each unis, country in data
+                    tr
+                        td
+                            p= `${capFirstLetter(country)}`
+                        td
+                            each uni in unis
+                                a(href=`${"/" + country + "/" + uni}`)= uni
+
+

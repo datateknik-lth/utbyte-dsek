@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 
 // Routes
 const indexRouter = require('./routes/index');
+const countryRouter = require('./routes/countryRouter');
+const uniRouter = require('./routes/uniRouter');
 
 // Create a new express app
 const app = express();
@@ -17,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Whenever we get a request on the form '/whatever' it should use the routes file to redirect
 app.use('/', indexRouter);
+app.use('/', countryRouter);
+//app.use('/*/*', uniRouter);
 
 
 //Export our app to use it in other files (like in start.js)

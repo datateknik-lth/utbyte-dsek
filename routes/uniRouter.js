@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const data = require('../data.json');
 
 //Respond to any requests to the root url
-router.get('/*/*', (req, res) => {
+router.get('/:country/:uni', (req, res) => {
+    const uni = req.params.uni;
+    const country = req.params.country;
 
-    const wtf = req.params;
-    console.log(wtf);
-    // Read uni data from server
-    res.render('front_page', {title: "Utbyte på D-sek", data: jsonDoc});
-
+    //res.render('uni',{title: data[country].unis[uni], uni: data[country].unis[uni]});
+    res.render('fuck', {title: "FUCK!"})
 });
 
 module.exports = router;

@@ -18,23 +18,24 @@ block head
 block content
 
     div.container
-        h1 Utbyte på datatekniksektionen vid LTH
+        h1 Exchange studies at Datatekniksektionen at LTH
         p Välkommna till resurssidan för utbyte på d-sek vid LTH. Här finner ni nyttiga länkar och godkända studieplaner som lär hjälpa er med er ansökan!
 
     div.container
-        input.form-control#uniSearch(type="text" placeholder="Sök uni/land...")
+        input.form-control#uniSearch(type="text" placeholder="Filter by country or university...")
         table.table.table-striped.table-bordered.table-sm.sortable#uniTable
             thead.thead-dark
                 tr
-                    th Land
-                    th Universitet
+                    th Country
+                    th University
             tbody
-                each unis, country in data
+                each country, c_key in data
                     tr
                         td
-                            p= `${capFirstLetter(country)}`
+                            a(href=`/${c_key}`)= `${country.pretty}`
                         td
-                            each uni in unis
-                                a(href=`${"/" + country + "/" + uni}`)= uni
+                            each uni, u_key in country.unis
+                                a(href=`/${c_key}/${uni.norm_name}`)= uni.name
+                                br
 
 

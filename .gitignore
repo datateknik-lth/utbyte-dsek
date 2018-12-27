@@ -1,3 +1,4 @@
+.env
 .idea
 *.xlsx
 __pycache__

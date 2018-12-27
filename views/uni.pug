@@ -1,4 +1,35 @@
 extend super
 
 block content
-    p Hej!
+    div.modal.fade#modalUploadForm(role="dialog", tabindex="-1")
+        div.modal-dialog(role="document")
+            div.modal-content
+                div.modal-header.text-center
+                    h3 WAAAT!
+                    button.close(type="button" data-dismiss="modal")
+                        span
+
+    div.container
+        h1= `${uni}`
+
+        h2 Study plans
+        div.d-flex.justify-content-end
+            a.btn.btn-primary.btn-rounded.my-1(href="" data-toggle="modal", data-target="#modalUploadForm") Upload study plan
+        p Here you can (hopefully) find study plans from kind souls who have gone through the trouble of creating their own. Don't forget to upload YOUR study plan when you have it approved. It is okay to upload study plans that are not approved, but of course, approved ones are preferred.
+        table.table.table-striped.sortable#uniTable
+            thead.thead-dark
+                tr
+                    th Download
+                    th Date&nbsp;
+                        span.fas.fa-info-circle(data-toggle="tooltip" title="Date of exchange on the format [S1/S2/S3] [year]. Usually the fall term equals S1 and spring equals S2. Some universities have trimesters though.")
+                    th Name&nbsp;
+                        span.fas.fa-info-circle(data-toggle="tooltip" title="Name of uploader")
+                    th Approved&nbsp;
+                        span.fas.fa-info-circle(data-toggle="tooltip" title="Is this study plan approved by the program planner?")
+                    th Comments
+
+        h2 Links
+
+        h2 Scholarships
+
+        h2 Tips & Tricks

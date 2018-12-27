@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/datateknik-lth/utbyte-dsek#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.1",
     "nodemon": "^1.18.9",
+    "popper": "^1.0.1",
     "pug": "^2.0.3"
   },
   "keywords": [

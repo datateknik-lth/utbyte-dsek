@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const jsonDoc = require('../python/data.json');
+//const jsonDoc = require('../data.json');
+const mongoose = require('mongoose');
 
 //Respond to any requests to the root url
+const Uni = mongoose.model('Uni');
 router.get('/', (req, res) => {
     // Read uni data from server
-    console.log(req.params)
-    res.render('front_page', {title: "Utbyte på D-sek", data: jsonDoc});
-
+    Uni.getAllByCountry(function(allCountries) {
+        res.render('front_page', {title: "Exchange studies at D-sek", data: allCountries});
+    })
 });
 
 module.exports = router;

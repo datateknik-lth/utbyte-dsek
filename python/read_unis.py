@@ -2,6 +2,15 @@ from openpyxl import load_workbook
 import json
 import re
 from bson import json_util
+import unicodedata
+
+
+def standardize(name):
+    name = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode('ascii')
+    name = re.sub(' ', '_', name).lower().strip().replace("\n", "")
+
+    return name
+
 
 def clean_uni_str(string):
     """Removed brackets and its content from string."""
@@ -37,7 +46,11 @@ def main():
     c_col = 1
     u_col = 2
 
-    for row in range(header_row+1, sheet.max_row+1):
+    # define fieldnames
+    pretty = "pretty"
+    unis = "unis"
+
+    for row in range(header_row + 1, sheet.max_row + 1):
         country = sheet.cell(row=row, column=c_col).value
         uni = sheet.cell(row=row, column=u_col).value
 
@@ -46,13 +59,16 @@ def main():
             break
         elif country.lower() != 'country':
 
-            if country is not None and country.lower() in JSON:
-                uni = clean_uni_str(uni)
-                if uni not in JSON[country.lower()]:  # Only add if not already present
-                    JSON[country.lower().strip()].append(uni)
+            country_pretty = country
+            country = standardize(country_pretty)
+            uni_pretty = clean_uni_str(uni)
+            uni = standardize(uni_pretty)
+
+            if country is not None and country in JSON:  # Country has been added to JSON
+                if uni not in JSON[country][unis]:  # Only add if not already present
+                    JSON[country][unis][uni] = uni_pretty
             else:
-                uni = clean_uni_str(uni)
-                JSON[country.lower().strip()] = [uni]
+                JSON[country] = {unis: {uni: uni_pretty}, pretty: country_pretty}
 
     with open('data.json', 'w', encoding='utf-8') as file:
         json.dump(JSON, file, ensure_ascii=False, default=json_util.default)
@@ -60,5 +76,5 @@ def main():
         print("Saved data in [data.json]")
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()

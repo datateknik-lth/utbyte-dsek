@@ -1,34 +1,36 @@
 const mongoose = require('mongoose');
 
 const uniSchema = new mongoose.Schema({
+    name_norm: {type: String, required: true, trim:true, unique:true},
     name: {type: String, required: true, trim: true, unique: true},
+    country_norm: {type: String, required: true, trim: true, unique: true},
     country: {type: String, required: true, trim: true},
     date_added: Date
-}, {autoIndex: false});
+}, {autoIndex: false });    
 
 /**
  * The normalized version of this unis name
  */
-uniSchema.virtual('norm_name').get(function () {
-    const norm_name = this.name
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, "_")
-        .toLowerCase();
-    return norm_name;
-});
+// uniSchema.virtual('norm_name').get(function () {
+//     const norm_name = this.name
+//         .normalize('NFD')
+//         .replace(/[\u0300-\u036f]/g, "")
+//         .replace(/\s+/g, "_")
+//         .toLowerCase();
+//     return this.norm_name = norm_name;
+// });
 
 /**
  * The normalized version of this unis country
  */
-uniSchema.virtual('norm_country').get(function () {
-    const norm_country = this.country
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, "_")
-        .toLowerCase();
-    return norm_country;
-})
+// uniSchema.virtual('norm_country').get(function () {
+//     const norm_country = this.country
+//         .normalize('NFD')
+//         .replace(/[\u0300-\u036f]/g, "")
+//         .replace(/\s+/g, "_")
+//         .toLowerCase();
+//     return this.norm_name = norm_country;
+// })
 
 /**
  * Finds all unis and returns them as values to their respective country (as key).
@@ -44,13 +46,13 @@ uniSchema.virtual('norm_country').get(function () {
  *         pretty: USA
  *     }
  * }
- * @param callback function that is called at end of exection like callback(unis).
+ * @param callback function that is called at end of execution like callback(unis).
  */
-uniSchema.methods.getAllByCountry = function (callback) {
+uniSchema.statics.getAllByCountry = function (callback) {
     this.model('Uni').find({}, function (err, res) {
         const countries = {};
         for (key in res) {
-            const c_key = res[key].norm_country
+            const c_key = res[key].country_norm;
 
             if (c_key in countries) {
                 countries[c_key].unis.push(res[key]);
@@ -64,9 +66,9 @@ uniSchema.methods.getAllByCountry = function (callback) {
 };
 
 uniSchema.query.byCountry = function(country) {
-    return this.where({$or: [{country: new RegExp(country, 'iu')}, {norm_country: new RegExp(country, 'iu')}]});
-}
+    return this.where({$or: [{country: new RegExp(country, 'iu')}, {country_norm: new RegExp(country, 'iu')}]});
+};
 
-uniSchema.index({norm_name: 1, norm_country: 1}, {unique: true});
+uniSchema.index({name_norm: 1, country_norm: 1}, {unique: true});
 
 module.exports = mongoose.model('Uni', uniSchema, 'universities');

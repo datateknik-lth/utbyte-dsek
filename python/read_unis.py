@@ -68,7 +68,7 @@ def main():
                 if uni not in JSON[country][unis]:  # Only add if not already present
                     JSON[country][unis][uni] = uni_pretty
             else:
-                JSON[country] = {unis: {uni: uni_pretty}, pretty: country_pretty}
+                JSON[country] = {unis: {uni: uni_pretty}, pretty: country_pretty, }
 
     with open('data.json', 'w', encoding='utf-8') as file:
         json.dump(JSON, file, ensure_ascii=False, default=json_util.default)

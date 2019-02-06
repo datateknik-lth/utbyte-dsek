@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const Uni = mongoose.model('Uni');
 router.get('/:country', (req, res) => {
     const country = req.params.country;
-
+    console.log("C router Country: " + country);
     Uni.find().byCountry(country).exec((err, unis) => {
 
         if (err)
@@ -16,7 +16,7 @@ router.get('/:country', (req, res) => {
             res.render('not_found', {title: "Page not found"});
         }
         else {
-            console.log(unis)
+            //console.log(unis)
             res.render('country', {
                 title: `Universities in ${unis[0].country}`,
                 country: country,

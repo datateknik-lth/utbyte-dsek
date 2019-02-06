@@ -18,12 +18,12 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Whenever we get a request on the form '/whatever' it should use the routes file to redirect
-app.use('/', indexRouter);
 app.use('/', countryRouter);
 app.use('/', uniRouter);
+app.use('/', indexRouter);
 
 // Server static files
-app.use(express.static("db"));
+
 
 //Export our app to use it in other files (like in start.js)
 module.exports = app;

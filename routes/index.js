@@ -8,6 +8,7 @@ const Uni = mongoose.model('Uni');
 router.get('/', (req, res) => {
     // Read uni data from server
     Uni.getAllByCountry(function(allCountries) {
+        console.log(allCountries)
         res.render('front_page', {title: "Exchange studies at D-sek", data: allCountries});
     })
 });

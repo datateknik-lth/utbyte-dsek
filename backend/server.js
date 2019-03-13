@@ -3,30 +3,37 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
+const data = require('./../data.json');
+const uploadUnis = require("./misc/json-uploader").uploadUnis;
 
 // Create a new express app and set the port
 const app = express();
-const PORT_EXPRESS = 3000;
+const PORT_EXPRESS = 4000;
 
 app.use(cors());
 app.use(bodyParser.json())
 
-
 // Connect to mongoose database
-mongoose.connect(`${process.env.DATABASE}`, {useNewUrlParser: true});
 mongoose.promise = global.Promise;
+mongoose.connect(`${process.env.DATABASE}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useNewUrlParser: true})
+    .then(() => {
+        console.log(`Mongoose connection open on port [${process.env.DB_PORT}] to database [${process.env.DB_NAME}]`);
+        if (process.argv[2] == "populate") {
+            uploadUnis(data)
+        }
+    })
+    .catch(() => {
+        console.error.bind(console, 'connection error:')
+    });
 
-let connection = mongoose.connection;
-connection.on('error', console.error.bind(console, 'connection error:'));
-connection.on('connected', function () {
-    console.log(`Mongoose connection open on ${process.env.DATABASE}`);
-    if (process.argv[2] == "populate") {
-        //uploadUnis(data);
-    }
-});
+// Register our endpoints API
+const uniRouter = require("./endpoints/uni-router");
+const studyPlanRouter = require("./endpoints/plan-router");
+app.use("/unis", uniRouter);
+//app.use("/study-plans", studyPlanRouter);
 
 // Start our express server
 app.listen(PORT_EXPRESS, () => {
-    console.log("Server is up and running on port: " + PORT_EXPRESS);
-})
+    console.log(`Express is up and running on port ${PORT_EXPRESS}`);
+});
+

@@ -1,0 +1,312 @@
+{
+  "argentina": {
+    "unis": {
+      "instituto_tecnologico_de_buenos_aires": "Instituto Tecnológico de Buenos Aires"
+    },
+    "pretty": "Argentina"
+  },
+  "australia": {
+    "unis": {
+      "australian_national_university": "Australian National University",
+      "royal_melbourne_institute_of_technology": "Royal Melbourne Institute of Technology",
+      "university_of_adelaide": "University of Adelaide",
+      "la_trobe_university": "La Trobe University",
+      "university_of_melbourne": "University of Melbourne",
+      "university_of_new_south_wales": "University of New South Wales",
+      "university_of_queensland": "University of Queensland",
+      "university_of_sydney": "University of Sydney",
+      "university_of_western_australia": "University of Western Australia"
+    },
+    "pretty": "Australia"
+  },
+  "austria": {
+    "unis": {
+      "johannes_kepler_universitat_linz": "Johannes Kepler Universität Linz",
+      "tu_graz": "TU Graz",
+      "tu_wien": "TU Wien"
+    },
+    "pretty": "Austria"
+  },
+  "belgium": {
+    "unis": {
+      "universite_catholique_de_louvain": "Université Catholique de Louvain",
+      "universite_de_liege": "Université de Liège",
+      "universite_libre_de_bruxelles": "Université Libre de Bruxelles",
+      "universiteit_gent": "Universiteit Gent",
+      "vrije_universiteit_brussel": "Vrije Universiteit Brussel"
+    },
+    "pretty": "Belgium"
+  },
+  "brazil": {
+    "unis": {
+      "pontificia_universidade_catolica_do_rio_de_janeiro": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "universidade_de_sao_paulo": "Universidade de São Paulo",
+      "universidade_federal_do_rio_de_janeiro": "Universidade Federal Do Rio de Janeiro"
+    },
+    "pretty": "Brazil"
+  },
+  "canada": {
+    "unis": {
+      "concordia_university": "Concordia University",
+      "ecole_polytechnique_de_montreal": "École polytechnique de Montréal",
+      "mcgill_university": "McGill University",
+      "queens_university": "Queen’s University",
+      "simon_fraser_university": "Simon Fraser University",
+      "university_of_british_columbia_-_vancouver": "University of British Columbia - Vancouver",
+      "university_of_guelph": "University of Guelph",
+      "university_of_toronto_-_st_george": "University of Toronto - St George",
+      "university_of_waterloo": "University of Waterloo"
+    },
+    "pretty": "Canada"
+  },
+  "chile": {
+    "unis": {
+      "pontificia_universidad_catolica_de_chile": "Pontificia Universidad Católica de Chile",
+      "universidad_tecnica_federico_santa_maria": "Universidad Técnica Federico Santa Maria"
+    },
+    "pretty": "Chile"
+  },
+  "china": {
+    "unis": {
+      "beihang_university": "Beihang University",
+      "chinese_university_of_hong_kong": "Chinese University of Hong Kong",
+      "tsinghua_university": "Tsinghua University",
+      "university_of_hong_kong": "University of Hong Kong",
+      "xiamen_university": "Xiamen University"
+    },
+    "pretty": "China"
+  },
+  "colombia": {
+    "unis": {
+      "universidad_de_los_andes": "Universidad de los Andes"
+    },
+    "pretty": "Colombia"
+  },
+  "czech_republic": {
+    "unis": {
+      "czech_technical_university": "Czech Technical University"
+    },
+    "pretty": "Czech Republic"
+  },
+  "denmark": {
+    "unis": {
+      "aalborg_university": "Aalborg University",
+      "danmarks_tekniske_universitet": "Danmarks Tekniske Universitet",
+      "syddansk_universitet_odense": "Syddansk Universitet Odense"
+    },
+    "pretty": "Denmark"
+  },
+  "estonia": {
+    "unis": {
+      "tallinn_university_of_technology": "Tallinn University of Technology"
+    },
+    "pretty": "Estonia"
+  },
+  "finland": {
+    "unis": {
+      "aalto_university": "Aalto University",
+      "lappeenranta_university_of_technology": "Lappeenranta University of Technology",
+      "university_of_oulo": "University of Oulo",
+      "university_of_vaasa": "University of Vaasa",
+      "abo_akademi": "Åbo Akademi"
+    },
+    "pretty": "Finland"
+  },
+  "france": {
+    "unis": {
+      "ecole_centrale_lille": "École Centrale Lille",
+      "ecole_centrale_lyon": "École Centrale Lyon",
+      "ecole_centrale_marseille": "École Centrale Marseille",
+      "ecole_centrale_nantes": "École Centrale Nantes",
+      "ecole_centrale_paris": "École Centrale Paris",
+      "ecole_nationale_des_arts_et_metiers_ensam_paris": "École Nationale des arts et métiers ENSAM Paris",
+      "ecole_nationale_superieure_de_l'aeronautique_et_de_l'espace_enac": "École Nationale Supérieure de l'Aéronautique et de l'Espace ENAC",
+      "ecole_nationale_superieure_de_techniques_avancees": "École Nationale Supérieure de Téchniques avancées",
+      "gif_sur_yvette_-_ecole_superieure_delectricite": "GIF sur Yvette - École supérieure d’Électricité",
+      "inp_grenoble": "INP Grenoble",
+      "inp_toulouse": "INP Toulouse",
+      "insa_lyon": "INSA Lyon",
+      "insa_toulouse": "INSA Toulouse",
+      "isae_supaero": "ISAE Supaero",
+      "universite_de_montpellier": "Université de Montpellier"
+    },
+    "pretty": "France"
+  },
+  "germany": {
+    "unis": {
+      "karlsruhe_institute_of_technology": "Karlsruhe Institute of Technology",
+      "rwth_aachen_university": "RWTH Aachen University",
+      "tu_berlin": "TU Berlin",
+      "tu_darmstadt": "TU Darmstadt",
+      "tu_dortmund": "TU Dortmund",
+      "tu_dresden": "TU Dresden",
+      "tu_hamburg-harburg": "TU Hamburg-Harburg",
+      "tu_munchen": "TU München",
+      "universitat_kaiserslautern": "Universität Kaiserslautern",
+      "universitat_stuttgart": "Universität Stuttgart"
+    },
+    "pretty": "Germany"
+  },
+  "iceland": {
+    "unis": {
+      "haskoli_islands": "Háskóli Íslands",
+      "reykjavik_university": "Reykjavík University"
+    },
+    "pretty": "Iceland"
+  },
+  "ireland": {
+    "unis": {
+      "university_college_cork": "University College Cork",
+      "university_college_dublin": "University College Dublin"
+    },
+    "pretty": "Ireland"
+  },
+  "italy": {
+    "unis": {
+      "politecnico_di_milano": "Politecnico di Milano",
+      "universita_degli_studi_di_milano": "Università degli studi di Milano",
+      "universita_degli_studi_di_padova": "Università degli studi di Padova",
+      "universita_degli_studi_di_trento": "Università degli studi di Trento",
+      "universita_di_bologna": "Università di Bologna"
+    },
+    "pretty": "Italy"
+  },
+  "indonesia": {
+    "unis": {
+      "university_of_indonesia": "University of Indonesia"
+    },
+    "pretty": "Indonesia"
+  },
+  "japan": {
+    "unis": {
+      "keio_university": "Keio University",
+      "kyushu_university": "Kyushu University",
+      "university_of_tokyo": "University of Tokyo"
+    },
+    "pretty": "Japan"
+  },
+  "mexico": {
+    "unis": {
+      "monterrey_institute_of_technology_and_higher_education": "Monterrey Institute of Technology and Higher Education"
+    },
+    "pretty": "Mexico"
+  },
+  "netherlands": {
+    "unis": {
+      "delft_university_of_technology": "Delft University of Technology",
+      "eindhoven_university_of_technology": "Eindhoven University of Technology",
+      "wageningen_university": "Wageningen University"
+    },
+    "pretty": "Netherlands"
+  },
+  "new_zealand": {
+    "unis": {
+      "university_of_canterbury": "University of Canterbury"
+    },
+    "pretty": "New Zealand"
+  },
+  "norway": {
+    "unis": {
+      "norwegian_university_of_science_and_technology": "Norwegian University of Science and Technology",
+      "norwegian_university_of_life_sciences": "Norwegian University of Life Sciences",
+      "university_of_stavanger": "University of Stavanger"
+    },
+    "pretty": "Norway"
+  },
+  "peru": {
+    "unis": {
+      "pontificia_universidad_catolica_del_peru": "Pontificia Universidad Católica del Peru"
+    },
+    "pretty": "Peru"
+  },
+  "portugal": {
+    "unis": {
+      "universidade_de_lisboa": "Universidade de Lisboa",
+      "universidade_do_porto": "Universidade do Porto"
+    },
+    "pretty": "Portugal"
+  },
+  "singapore": {
+    "unis": {
+      "nanyang_technological_university": "Nanyang Technological University",
+      "national_university_of_singapore": "National University of Singapore"
+    },
+    "pretty": "Singapore"
+  },
+  "south_africa": {
+    "unis": {
+      "stellenbosch_university": "Stellenbosch University",
+      "university_of_pretoria": "University of Pretoria"
+    },
+    "pretty": "South Africa"
+  },
+  "south_korea": {
+    "unis": {
+      "dongguk_university": "Dongguk University",
+      "korea_advanced_institute_of_science_and_technology": "Korea Advanced Institute of Science and Technology",
+      "seoul_national_university": "Seoul National University"
+    },
+    "pretty": "South Korea"
+  },
+  "spain": {
+    "unis": {
+      "universidad_de_sevilla": "Universidad de Sevilla",
+      "universidad_politecnica_de_madrid": "Universidad Politécnica de Madrid",
+      "universidad_pontifica_comillas_de_madrid": "Universidad Pontifica Comillas de Madrid",
+      "universitat_politecnica_de_catalunya": "Universitat Politècnica de Catalunya",
+      "universitat_politecnica_de_valencia": "Universitat Politècnica de Valencia"
+    },
+    "pretty": "Spain"
+  },
+  "switzerland": {
+    "unis": {
+      "ecole_polytechnique_federale_de_lausanne": "Ecole Polytechnique Fédérale de Lausanne",
+      "eth_zurich": "ETH Zürich",
+      "universitat_basel": "Universität Basel"
+    },
+    "pretty": "Switzerland"
+  },
+  "taiwan": {
+    "unis": {
+      "national_taiwan_university": "National Taiwan University",
+      "national_tsing_hua_university": "National Tsing Hua University"
+    },
+    "pretty": "Taiwan"
+  },
+  "turkey": {
+    "unis": {
+      "istanbul_technical_university": "Istanbul Technical University"
+    },
+    "pretty": "Turkey"
+  },
+  "united_kingdom": {
+    "unis": {
+      "imperial_college_of_science_london": "Imperial College of Science London",
+      "university_college_london": "University College London",
+      "university_of_birmingham": "University of Birmingham",
+      "university_of_edinburgh": "University of Edinburgh",
+      "university_of_glasgow": "University of Glasgow",
+      "university_of_nottingham": "University of Nottingham"
+    },
+    "pretty": "United Kingdom"
+  },
+  "usa": {
+    "unis": {
+      "california_institute_of_technology_-_surf_summer_school": "California Institute of Technology - SURF Summer School",
+      "michigan_state_university": "Michigan State University",
+      "north_carolina_state_university": "North Carolina State University",
+      "northeastern_university": "Northeastern University",
+      "santa_clara_university": "Santa Clara University",
+      "temple_university": "Temple University",
+      "university_of_california": "University of California",
+      "university_of_connecticut": "University of Connecticut",
+      "university_of_illinois_at_urbana-champaign": "University of Illinois at Urbana-Champaign",
+      "university_of_maryland": "University of Maryland",
+      "university_of_michigan": "University of Michigan",
+      "university_of_north_carolina_at_chapel_hill": "University of North Carolina at Chapel Hill",
+      "university_of_virginia": "University of Virginia",
+      "virginia_tech": "Virginia Tech"
+    },
+    "pretty": "USA"
+  }
+}

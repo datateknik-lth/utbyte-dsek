@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const studyPlan = new mongoose.Schema({
     pdf: { type: Buffer, required: true},
     comments: String,

@@ -13,8 +13,8 @@ the requirements in `package.json`:
  
 `npm install`
 
-Now run the backend:
-`nodemon backend/server`
+Now run the backend: `nodemon backend/server`. To repopulate the database with unis, specify `-- populate`. 
+Shut down the server immediately when the population finished and restart without the flag. 
 
 And then run the frontend:
 `npm start`

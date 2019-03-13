@@ -2,6 +2,12 @@
 
 /.idea
 
+# Secret .env file
+.env
+
+# Python cache
+*/__pycache__
+
 # dependencies
 /node_modules
 /.pnp

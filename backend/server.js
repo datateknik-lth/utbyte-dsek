@@ -4,7 +4,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const data = require('./../data.json');
-const uploadUnis = require("./misc/json-uploader").uploadUnis;
+
+const misc = require("./misc/json-uploader");
 
 // Create a new express app and set the port
 const app = express();
@@ -19,7 +20,7 @@ mongoose.connect(`${process.env.DATABASE}:${process.env.DB_PORT}/${process.env.D
     .then(() => {
         console.log(`Mongoose connection open on port [${process.env.DB_PORT}] to database [${process.env.DB_NAME}]`);
         if (process.argv[2] == "populate") {
-            uploadUnis(data)
+            misc.uploadUnis(data);
         }
     })
     .catch(() => {
@@ -30,7 +31,7 @@ mongoose.connect(`${process.env.DATABASE}:${process.env.DB_PORT}/${process.env.D
 const uniRouter = require("./endpoints/uni-router");
 const studyPlanRouter = require("./endpoints/plan-router");
 app.use("/unis", uniRouter);
-//app.use("/study-plans", studyPlanRouter);
+app.use("/study-plans", studyPlanRouter);
 
 // Start our express server
 app.listen(PORT_EXPRESS, () => {

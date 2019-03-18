@@ -1,18 +1,28 @@
 import React from 'react';
-import UniTable from "./components/uni-table/UniTable";
+import TableView from "./views/table-view/TableView";
+import UniView from "./views/uni-view/UniView";
 import './App.css';
 import 'typeface-roboto';
 import "bootstrap/dist/css/bootstrap.min.css";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 
 class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            unis: []
+        };
+    }
+
     render() {
         return (
-            <div class="container">
-                <h1>Exchange studies at D-sek</h1>
-                <UniTable></UniTable>
-            </div>
-        );
+            <Router>
+                <Route path="/" exact component={TableView}/>
+                <Route path="/:country/:uni" component={UniView}/>
+            </Router>
+        )
     }
 }
 

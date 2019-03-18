@@ -51,7 +51,7 @@ const uniSchema = new mongoose.Schema({
 uniSchema.statics.getAllByCountry = function (callback) {
     this.model('Uni').find({}, function (err, res) {
         const countries = {};
-        for (key in res) {
+        for (let key in res) {
             const c_key = res[key].country_norm;
 
             if (c_key in countries) {
@@ -67,6 +67,10 @@ uniSchema.statics.getAllByCountry = function (callback) {
 
 uniSchema.query.byCountry = function(country) {
     return this.where({$or: [{country: new RegExp(country, 'iu')}, {country_norm: new RegExp(country, 'iu')}]});
+};
+
+uniSchema.query.byName = function(name) {
+    return this.where({$or: [{name: new RegExp(name, 'iu')}, {name_norm: new RegExp(name, 'iu')}]})
 };
 
 uniSchema.index({name_norm: 1, country_norm: 1}, {unique: true});

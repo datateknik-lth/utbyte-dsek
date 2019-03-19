@@ -1,6 +1,7 @@
 import React from "react";
 import {Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
 import "./UniTable.css";
+import MyTable from "../my-table/MyTable";
 
 class UniTable extends React.Component {
 
@@ -42,24 +43,14 @@ class UniTable extends React.Component {
                 </tr>
             })
         } else {
-            return <TableRow></TableRow>;
+            return <TableRow rows={[]} headers={[]}></TableRow>;
         }
     }
 
     render() {
         return (
             <div>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Country</th>
-                            <th>University</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.getRows()}
-                    </tbody>
-                </table>
+                <MyTable headers={["Country", "University"]} rows={this.getRows()}/>
             </div>
         )
     }

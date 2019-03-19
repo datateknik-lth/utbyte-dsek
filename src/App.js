@@ -4,7 +4,7 @@ import UniView from "./views/uni-view/UniView";
 import './App.css';
 import 'typeface-roboto';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 
 class App extends React.Component {
@@ -19,8 +19,10 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-                <Route path="/" exact component={TableView}/>
-                <Route path="/:country/:uni" component={UniView}/>
+                <div className="container">
+                    <Route path="/" exact component={TableView}/>
+                    <Route path="/:country/:uni" component={UniView}/>
+                </div>
             </Router>
         )
     }

@@ -7,6 +7,7 @@ const studyPlan = new mongoose.Schema({
     approved: {type: Boolean, required: true},
     uploaded_by: {type: String, trim: true, required: true},
     date_uploaded: {type: Date, required: true},
+    date_exchange: {type: String, min:4},
     university: {type: mongoose.Schema.Types.ObjectId, ref: 'Uni', required: true}
 });
 

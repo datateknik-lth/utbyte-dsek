@@ -3,6 +3,9 @@
 # Jetbrains IDE
 /.idea
 
+# Visual Studio Code
+/.vscode
+
 # Secret .env file
 .env
 

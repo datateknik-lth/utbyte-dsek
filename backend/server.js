@@ -5,14 +5,17 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const data = require('./../data.json');
 
+
 const misc = require("./misc/json-uploader");
 
 // Create a new express app and set the port
 const app = express();
 const PORT_EXPRESS = 4000;
 
+//app.use(busboy({ immediate: true }));
 app.use(cors());
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Connect to mongoose database
 mongoose.promise = global.Promise;
@@ -30,8 +33,11 @@ mongoose.connect(`${process.env.DATABASE}:${process.env.DB_PORT}/${process.env.D
 // Register our endpoints API
 const uniRouter = require("./endpoints/uni-router");
 const studyPlanRouter = require("./endpoints/plan-router");
+const testRouter = require("./endpoints/test-router");
 app.use("/unis", uniRouter);
 app.use("/study-plans", studyPlanRouter);
+app.use("/test", testRouter);
+
 
 // Start our express server
 app.listen(PORT_EXPRESS, () => {

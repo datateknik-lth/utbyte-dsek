@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import MyTable from "../../components/my-table/MyTable";
 import UploadButton from "../../components/upload-button/UploadButton";
-import {postStudyPlan} from "../../misc/HTTPRequester";
-import FormData from "form-data";
+
+//import FormData from "form-data";
 
 class UniView extends React.Component {
 
@@ -29,27 +29,23 @@ class UniView extends React.Component {
     }
 
     onStudyPlanUpload(files) {
+
         const file = files[0];
         let formData = new FormData();
 
-        formData.append("pdf", "sdasd");
+        formData.append("pdf", file, file.name);
         formData.append("comments", "A really lit study plan!");
         formData.append("approved", true);
-        formData.append("uploaded_by", "Sebastian Nerd");
-        formData.append("date_uploaded", "2012-02-1");
+        formData.append("uploaded_by", "Melker's mamma");
+        formData.append("date_uploaded", new Date());
         formData.append("university", "australian_national_university");
 
-        let plan = {
-            "pdf": file,
-            "comments": "A really lit study plan!",
-            "approved": true,
-            "uploaded_by": "Sebastian Negardt",
-            "date_uploaded": Date.now(),
-            "university": "australian_national_university"
-        }
-        postStudyPlan(formData, formData.getHeaders())
+        const HOST = "http://localhost";
+        const PORT = 4000;
+        axios.post(`${HOST}:${PORT}/test/add`, formData)
             .then(res => console.log(res))
             .catch(err => console.log(err))
+
     }
 
     render() {
@@ -58,9 +54,7 @@ class UniView extends React.Component {
                 <h1>{this.state.name}</h1>
                 <h3>{this.state.country}</h3>
 
-                <UploadButton
-                    onSubmit={this.onStudyPlanUpload}
-                />
+                <UploadButton onSubmit={this.onStudyPlanUpload}>Upload</UploadButton>
                 <MyTable
                     headers={["Download", "Date", "Name", "Approved", "Comments"]}
                     header_tooltips={[null, "Date of exchange on the format [year-[S1/S2/S3]]. Usually the fall term equals S1 and spring equals S2. Some universities have trimesters, where the last semester is called s3.",

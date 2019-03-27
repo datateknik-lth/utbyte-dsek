@@ -22,7 +22,7 @@ mongoose.promise = global.Promise;
 mongoose.connect(`${process.env.DATABASE}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useNewUrlParser: true})
     .then(() => {
         console.log(`Mongoose connection open on port [${process.env.DB_PORT}] to database [${process.env.DB_NAME}]`);
-        if (process.argv[2] == "populate") {
+        if (process.argv[2] === "populate") {
             misc.uploadUnis(data);
         }
     })
@@ -33,10 +33,8 @@ mongoose.connect(`${process.env.DATABASE}:${process.env.DB_PORT}/${process.env.D
 // Register our endpoints API
 const uniRouter = require("./endpoints/uni-router");
 const studyPlanRouter = require("./endpoints/plan-router");
-const testRouter = require("./endpoints/test-router");
 app.use("/unis", uniRouter);
-app.use("/study-plans", studyPlanRouter);
-app.use("/test", testRouter);
+app.use("/study-plan", studyPlanRouter);
 
 
 // Start our express server

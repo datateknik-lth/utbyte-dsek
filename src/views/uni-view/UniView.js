@@ -42,7 +42,7 @@ class UniView extends React.Component {
 
         const HOST = "http://localhost";
         const PORT = 4000;
-        axios.post(`${HOST}:${PORT}/test/add`, formData)
+        axios.post(`${HOST}:${PORT}/study-plan/add`, formData)
             .then(res => console.log(res))
             .catch(err => console.log(err))
 

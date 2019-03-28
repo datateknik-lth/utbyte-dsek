@@ -1,16 +1,21 @@
 import React from "react";
-import {Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
+import {TableRow} from "@material-ui/core";
 import "./UniTable.css";
 import MyTable from "../my-table/MyTable";
+
 
 class UniTable extends React.Component {
 
     constructor(props) {
         super(props);
-        this.getRows = this.getRows.bind(this);
+        this.getData = this.getData.bind(this);
     }
 
-    arrangeByCountry(objToFill, obj) {
+    componentDidMount() {
+        console.log(this.getData());
+    }
+
+    static arrangeByCountry(objToFill, obj) {
         const country = obj.country_norm;
         if (country in objToFill) {
             objToFill[country].push(obj);
@@ -19,38 +24,39 @@ class UniTable extends React.Component {
         }
     }
 
-    getRows() {
+    static getHTMLList(uniList) {
+        return uniList.map(uni => {
+            return <ul key={uni.name_norm}>
+                <li>
+                    <a href={"/uni/" + uni.country_norm + "/" + uni.name_norm}>{uni.name}</a>
+                </li>
+            </ul>
+        })
+    }
+
+    getData() {
         let unis = this.props.unis;
         let unisByCountry = {};
+        let allData = [];
 
         if (unis.length) {
-            unis.forEach(uni => this.arrangeByCountry(unisByCountry, uni));
+            unis.forEach(uni => UniTable.arrangeByCountry(unisByCountry, uni));
 
-            return Object.keys(unisByCountry).map(key => {
-                const uniList = unisByCountry[key];
+            Object.keys(unisByCountry).forEach(country_norm => { // For each country
+                const uniList = unisByCountry[country_norm];
                 const firstUni = uniList[0];
-                return <tr key={firstUni.country_norm}>
-                    <td>{firstUni.country}</td>
-                    <td>
-                        {uniList.map(uni => {
-                            return <ul key={uni.name_norm}>
-                                <li>
-                                    <a href={"/" + uni.country_norm + "/" + uni.name_norm}>{uni.name}</a>
-                                </li>
-                            </ul>
-                        })}
-                    </td>
-                </tr>
+                allData.push([<a href={"/uni/" + firstUni.country_norm}>{firstUni.country}</a> , UniTable.getHTMLList(uniList)]);
             })
-        } else {
-            return <TableRow rows={[]} headers={[]}></TableRow>;
         }
+        return allData;
     }
 
     render() {
         return (
             <div>
-                <MyTable headers={["Country", "University"]} rows={this.getRows()}/>
+                <MyTable
+                    headers={["Country", "University"]}
+                    dataMatrix={this.getData()}/>
             </div>
         )
     }

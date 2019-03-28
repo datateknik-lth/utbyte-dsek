@@ -10,7 +10,7 @@ require("./../../models/Test");
 const router = express.Router();
 const StudyPlan = mongoose.model('StudyPlan');
 const Uni = mongoose.model("Uni");
-const Test = mongoose.model("Test");
+
 // Get all study plans
 router.route("/").get((req, res) => {
     StudyPlan.find({}, (plans) => {
@@ -43,11 +43,11 @@ router.route("/add").post((req, res, next) => {
 
         file.on("data", () => {
             console.log("Got file data!");
-        })
+        });
 
         file.on("end", () => {
             //How do I save the file to MongoDB?
-        })
+        });
     });
 
     // We're done here boys!

@@ -13,11 +13,16 @@ router.route("/").get((req, res) => {
 });
 
 // Find uni by normalized name
-router.route("/:name_norm").get((req, res) => {
+router.route("/by_uni/:name_norm").get((req, res) => {
     const name = req.params["name_norm"];
     Uni.find().byName(name).exec((err, unis) => {
-        res.json(unis[0]);
+        if (unis.length > 0)
+            res.json(unis[0]);
+        else
+            res.status(400).json(`University ${name} could not be found.`);
     })
 })
+
+router.route("/by_country/:name_norm")
 
 module.exports = router;

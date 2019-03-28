@@ -2,7 +2,7 @@ import React from "react";
 import "./MyTable.css";
 import Tooltip from "@material-ui/core/Tooltip";
 import Icon from "@material-ui/core/Icon"
-import {HelpOutline} from "@material-ui/icons";
+import uuid from "uuid/v4";
 
 class MyTable extends React.Component {
 
@@ -23,10 +23,11 @@ class MyTable extends React.Component {
     }
 
     render() {
+        const data = this.props.dataMatrix ? this.props.dataMatrix : [];
         return (
             <div>
-                <table className="table table-striped">
-                    <thead>
+                <table className="table table-striped table-sm">
+                    <thead className="thead-dark">
                     <tr>
                         {this.props.headers.map(h => {
                             return <th key={h}>{h}{this.getHeader(h)}</th>
@@ -34,7 +35,11 @@ class MyTable extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.props.rows}
+                    {data.map(row => {
+                        return <tr key={uuid()}>{row.map(elem => {
+                            return <td key={uuid()}>{elem}</td>
+                        })}</tr>
+                    })}
                     </tbody>
                 </table>
             </div>

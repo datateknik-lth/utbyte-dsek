@@ -24,7 +24,11 @@ class TableView extends React.Component {
 
     render() {
         return (
-            <UniTable unis={this.state.unis}/>
+            <div>
+                <h1>Table of partner universities</h1>
+
+                <UniTable unis={this.state.unis}/>
+            </div>
         )
     }
 }
